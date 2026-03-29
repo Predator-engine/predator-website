@@ -287,72 +287,9 @@
                 0 0 40px rgba(27,140,255,0.7);
             animation: fadeInSoft 0.8s ease-out;
         }
-
-        footer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #8086a0;
-            padding: 20px;
-            border-top: 1px solid #20263a;
-            background: rgba(3,5,15,0.95);
-            box-shadow: 0 -10px 25px rgba(0,0,0,0.9);
-        }
-
-        #music-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 18px;
-            background: #11182b;
-            color: var(--predator-blue);
-            border: 1px solid var(--predator-blue);
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            text-shadow: 0 0 6px var(--predator-blue);
-            box-shadow:
-                0 0 12px rgba(27,140,255,0.8),
-                0 0 26px rgba(0,0,0,0.9);
-            transition: transform 0.15s ease-out,
-                        box-shadow 0.15s ease-out,
-                        background 0.15s ease-out;
-            z-index: 50;
-        }
-
-        #music-btn:hover {
-            transform: scale(1.05) translateY(-1px);
-            background: #18223a;
-            box-shadow:
-                0 0 18px rgba(95,208,255,1),
-                0 0 32px rgba(27,140,255,0.9);
-        }
-
-        @media (max-width: 800px) {
-            header {
-                flex-direction: column;
-                gap: 18px;
-            }
-
-            .header-center h1 {
-                font-size: 2.1rem;
-                letter-spacing: 0.14em;
-            }
-
-            .downloads-row {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .downloads-right video {
-                height: 5.2em;
-            }
-
-            .video-wrapper video {
-                width: 100%;
-            }
-        }
     </style>
 </head>
+
 <body>
 
 <!-- MUSIC: AUTOSTART MUTED -->
@@ -449,4 +386,52 @@
     <section id="credits">
         <h2>Credits & License</h2>
         <p>
-            Predator / SOLIDOR is based on the Stockfish family
+            Predator / SOLIDOR is based on the Stockfish family and distributed under the
+            GNU General Public License (GPL). Please refer to the included license files
+            for full details.
+        </p>
+
+        <p>
+            Forum: <a href="https://solidor.forumpolish.com" target="_blank">solidor.forumpolish.com</a><br>
+            <span style="color:#c0c7e0;">Full technical documentation is available on the forum.</span>
+        </p>
+
+        <p>
+            Author: Eugeniusz Olesinski<br>
+            Contact: <a href="mailto:eolesinski70@gmail.com">eolesinski70@gmail.com</a><br>
+            Facebook: <a href="https://www.facebook.com/profile.php?id=100091875674531" target="_blank">
+                Visit my Facebook profile
+            </a>
+        </p>
+    </section>
+</main>
+
+<footer>
+    © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
+</footer>
+
+<!-- MUSIC BUTTON -->
+<button id="music-btn" onclick="toggleMusic()">Music ON/OFF</button>
+
+<!-- MUSIC SCRIPT -->
+<script>
+const audio = document.getElementById('bg-music');
+let musicEnabled = false;
+
+// allow autoplay muted
+audio.play().catch(() => {});
+
+function toggleMusic() {
+    if (!musicEnabled) {
+        audio.muted = false;
+        audio.play();
+        musicEnabled = true;
+    } else {
+        audio.pause();
+        musicEnabled = false;
+    }
+}
+</script>
+
+</body>
+</html>
