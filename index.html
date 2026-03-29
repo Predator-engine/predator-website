@@ -71,15 +71,17 @@
             color: #5fd0ff;
         }
 
+        /* Downloads in a vertical column */
         .downloads a {
-            display: inline-block;
-            margin: 6px 10px 0 0;
-            padding: 8px 14px;
+            display: block;
+            width: fit-content;
+            margin: 10px 0;
+            padding: 10px 16px;
             border-radius: 4px;
             background: #1b2b4a;
             color: #f5f5f5;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .downloads a:hover {
@@ -142,7 +144,9 @@
     <section id="downloads" class="downloads">
         <h2>Downloads</h2>
         <p>Choose the build that matches your system:</p>
+
         <a href="#">Windows x64 AVX2</a>
+        <a href="#">Windows x64 BMI2</a>
         <a href="#">Windows x64</a>
         <a href="#">Source code (GitHub)</a>
     </section>
@@ -150,9 +154,7 @@
     <section id="screens">
         <h2>Branding & Screens</h2>
         <p>Official Predator / SOLIDOR artwork:</p>
-        <div class="screenshot">
-            <!-- Optional artwork -->
-        </div>
+        <div class="screenshot"></div>
     </section>
 
     <section id="credits">
