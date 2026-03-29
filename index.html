@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess Engine PREDATOR / SOLIDOR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #050814;
+            color: #f5f5f5;
+        }
+        header {
+            background: radial-gradient(circle at top, #1b2b4a 0, #050814 60%);
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+        header img.logo {
+            max-width: 260px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        header p.tagline {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #c0c7e0;
+        }
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #30364f;
+            padding-bottom: 6px;
+        }
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .features li::before {
+            content: "• ";
+            color: #5fd0ff;
+        }
+        .downloads a {
+            display: inline-block;
+            margin: 6px 10px 0 0;
+            padding: 8px 14px;
+            border-radius: 4px;
+            background: #1b2b4a;
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .downloads a:hover {
+            background: #26406b;
+        }
+        .screenshot {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .screenshot img {
+            max-width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 0 18px rgba(0,0,0,0.7);
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8086a0;
+            padding: 20px;
+            border-top: 1px solid #20263a;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- TU PODSTAWISZ SWOJE LOGO PNG -->
+    <!-- <img src="predator-logo.png" alt="Predator Engine Logo" class="logo"> -->
+    <h1>Chess Engines “PREDATOR” / SOLIDOR</h1>
+    <p class="tagline">Aggressive, cosmic-strength UCI chess engine for modern hardware.</p>
+</header>
+
+<main>
+    <section id="about">
+        <h2>About Predator</h2>
+        <p>
+            Predator is a UCI-compatible chess engine focused on dynamic, sharp play and
+            modern search techniques. Built on a solid foundation and tuned for practical
+            strength, it combines speed, clarity of options and a distinctive identity.
+        </p>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>UCI engine with MultiPV, Syzygy tablebases and flexible options.</li>
+            <li>Support for modern hardware (AVX2 builds, multi-threading, large hash).</li>
+            <li>Configurable opening books (FenBook, CTG, multiple sources).</li>
+            <li>Human-like randomness and strength scaling for training and fun.</li>
+        </ul>
+    </section>
+
+    <section id="downloads" class="downloads">
+        <h2>Downloads</h2>
+        <p>Choose the build that matches your system:</p>
+        <a href="#">Windows x64 AVX2</a>
+        <a href="#">Windows x64</a>
+        <a href="#">Source code (GitHub)</a>
+    </section>
+
+    <section id="screens">
+        <h2>Branding & Screens</h2>
+        <p>Official Predator / SOLIDOR artwork:</p>
+        <div class="screenshot">
+            <!-- TU WSTAWISZ SWÓJ KOSMICZNY OBRAZ -->
+            <!-- <img src="predator-space-banner.png" alt="Predator Space Artwork"> -->
+        </div>
+    </section>
+
+    <section id="credits">
+        <h2>Credits & License</h2>
+        <p>
+            Predator / SOLIDOR is based on the Stockfish family and distributed under the
+            GNU General Public License (GPL). Please refer to the included license files
+            for full details.
+        </p>
+        <p>
+            Author: Eugeniusz & collaborators.  
+            Contact: <em>(tu możesz dodać mail / link)</em>
+        </p>
+    </section>
+</main>
+
+<footer>
+    © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
+</footer>
+
+</body>
+</html>
