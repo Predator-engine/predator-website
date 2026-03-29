@@ -133,9 +133,30 @@
             padding: 20px;
             border-top: 1px solid #20263a;
         }
+
+        /* Music button */
+        #music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 18px;
+            background: #1b2b4a;
+            color: #5fd0ff;
+            border: 1px solid #5fd0ff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-shadow: 0 0 6px #5fd0ff;
+            box-shadow: 0 0 12px #1b8cff;
+        }
     </style>
 </head>
 <body>
+
+<!-- Background music -->
+<audio id="bg-music" autoplay loop>
+    <source src="PREDATOR.mp3" type="audio/mpeg">
+</audio>
 
 <header>
     <img src="ICCF.png" alt="ICCF Logo" class="logo-left">
@@ -213,6 +234,16 @@
 <footer>
     © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
 </footer>
+
+<!-- Music toggle button -->
+<button id="music-btn" onclick="toggleMusic()">Music ON/OFF</button>
+
+<script>
+function toggleMusic() {
+    const audio = document.getElementById('bg-music');
+    audio.paused ? audio.play() : audio.pause();
+}
+</script>
 
 </body>
 </html>
