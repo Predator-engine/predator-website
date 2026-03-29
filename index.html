@@ -22,7 +22,7 @@
             color: #f5f5f5;
         }
 
-        /* TOP BAR — TIME + DATE */
+        /* TOP BAR — TIME + DATE + HEARTBEAT */
         #top-info-bar {
             width: 100%;
             display: flex;
@@ -33,13 +33,19 @@
             text-shadow: 0 0 6px #5fd0ff;
             background: rgba(5, 10, 25, 0.55);
             border-bottom: 1px solid rgba(95,208,255,0.3);
-            box-shadow: 0 0 12px rgba(27,140,255,0.4);
+            animation: heartbeatGlow 2.4s ease-in-out infinite;
         }
 
         #current-time,
         #current-date {
             font-weight: 500;
             letter-spacing: 0.05em;
+        }
+
+        @keyframes heartbeatGlow {
+            0%   { box-shadow: 0 0 10px rgba(95,208,255,0.4); }
+            50%  { box-shadow: 0 0 22px rgba(95,208,255,0.9); }
+            100% { box-shadow: 0 0 10px rgba(95,208,255,0.4); }
         }
 
         @keyframes fadeInSoft {
@@ -459,13 +465,15 @@
         </p>
 
         <p>
+            Forum: <a href="https://solidor.forumpolish.com" target="_blank">solidor.forumpolish.com</
+               <p>
             Forum: <a href="https://solidor.forumpolish.com" target="_blank">solidor.forumpolish.com</a><br>
             <span style="color:#c0c7e0;">Full technical documentation is available on the forum.</span>
         </p>
 
         <p>
-            Author: Eugeniusz Olesinski
-             Contact: <a href="mailto:eolesinski70@gmail.com">eolesinski70@gmail.com</a><br>
+            Author: Eugeniusz Olesinski<br>
+            Contact: <a href="mailto:eolesinski70@gmail.com">eolesinski70@gmail.com</a><br>
             Facebook: <a href="https://www.facebook.com/profile.php?id=100091875674531" target="_blank">
                 Visit my Facebook profile
             </a>
