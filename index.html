@@ -20,9 +20,8 @@
             align-items: center;
         }
 
-        /* Cosmic glow effect for both logos */
-        header img.logo-left,
-        header img.logo-right {
+        /* ICCF – cold blue hologram */
+        header img.logo-left {
             max-width: 260px;
             height: auto;
             filter:
@@ -33,6 +32,19 @@
                 drop-shadow(0 0 12px #5fd0ff)
                 drop-shadow(0 0 24px #1b8cff)
                 drop-shadow(0 0 45px #005eff);
+        }
+
+        /* PREDATOR – red plasma glow */
+        header img.logo-right {
+            max-width: 260px;
+            height: auto;
+            filter:
+                brightness(1.45)
+                contrast(1.35)
+                saturate(1.8)
+                drop-shadow(0 0 14px #ff3b3b)
+                drop-shadow(0 0 28px #ff1a1a)
+                drop-shadow(0 0 55px #ff0000);
         }
 
         .header-center {
@@ -141,8 +153,8 @@
         <h2>About Predator</h2>
         <p>
             Predator is a UCI-compatible chess engine focused on dynamic, sharp play and
-            modern search techniques. Built on a solid foundation and tuned for practical
-            strength, it combines speed, clarity of options and a distinctive identity.
+            modern search techniques. Built for practical strength, it combines speed,
+            clarity of options and a distinctive identity.
         </p>
     </section>
 
@@ -158,4 +170,49 @@
 
     <section id="downloads" class="downloads">
         <h2>Downloads</h2>
-        <p>Choose the build
+        <p>Select the build that matches your system:</p>
+
+        <a href="#">Windows x64 AVX2</a>
+        <a href="#">Windows x64 BMI2</a>
+        <a href="#">Windows x64</a>
+
+        <a href="https://mega.nz/folder/JmBEWJSA#rOo5E9CAR-ixUA2WR5IWmA" target="_blank">
+            Source code (MEGA)
+        </a>
+    </section>
+
+    <section id="screens">
+        <h2>Branding & Screens</h2>
+        <p>Official Predator / SOLIDOR artwork:</p>
+        <div class="screenshot"></div>
+    </section>
+
+    <section id="credits">
+        <h2>Credits & License</h2>
+        <p>
+            Predator / SOLIDOR is based on the Stockfish family and distributed under the
+            GNU General Public License (GPL). Please refer to the included license files
+            for full details.
+        </p>
+
+        <p>
+            Forum: <a href="https://solidor.forumpolish.com" target="_blank">solidor.forumpolish.com</a><br>
+            <span style="color:#c0c7e0;">Full technical documentation is available on the forum.</span>
+        </p>
+
+        <p>
+            Author: Eugeniusz Olesinski<br>
+            Contact: <a href="mailto:eolesinski70@gmail.com">eolesinski70@gmail.com</a><br>
+            Facebook: <a href="https://www.facebook.com/profile.php?id=100091875674531" target="_blank">
+                Visit my Facebook profile
+            </a>
+        </p>
+    </section>
+</main>
+
+<footer>
+    © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
+</footer>
+
+</body>
+</html>
