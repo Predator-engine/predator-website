@@ -201,23 +201,19 @@
 
     </section>
 
-    <!-- PREDATOR VIDEO PRESENTATION WITH PREDATOR.MP4 ON THE RIGHT -->
+    <!-- PREDATOR VIDEO PRESENTATION IN COLUMN -->
     <section id="video">
 
         <h2>Predator Video Presentation</h2>
 
-        <div style="display:flex; align-items:center; gap:40px;">
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px;">
 
-            <div style="max-width:60%;">
-                <p>Official presentation of the Predator engine.</p>
-            </div>
+            <video autoplay loop muted playsinline 
+                   style="width:50%; border-radius:10px; box-shadow:0 0 20px #5fd0ff;">
+                <source src="PREDATOR.mp4" type="video/mp4">
+            </video>
 
-            <div style="display:flex; align-items:center;">
-                <video autoplay loop muted playsinline 
-                       style="height:10em; border-radius:6px; box-shadow:0 0 20px #5fd0ff;">
-                    <source src="PREDATOR.mp4" type="video/mp4">
-                </video>
-            </div>
+            <p>Official presentation of the Predator engine.</p>
 
         </div>
 
