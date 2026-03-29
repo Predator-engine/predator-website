@@ -145,26 +145,6 @@
             text-shadow: 0 0 6px #5fd0ff;
             box-shadow: 0 0 12px #1b8cff;
         }
-
-        /* Modal Video Window */
-        #video-modal {
-            display:none;
-            position:fixed;
-            top:0; left:0;
-            width:100%; height:100%;
-            background:rgba(0,0,0,0.75);
-            backdrop-filter: blur(4px);
-            justify-content:center;
-            align-items:center;
-            z-index:9999;
-        }
-
-        #video-box {
-            background:#0b0f1d;
-            padding:10px;
-            border-radius:10px;
-            box-shadow:0 0 25px #5fd0ff;
-        }
     </style>
 </head>
 <body>
@@ -223,18 +203,13 @@
         <div class="screenshot"></div>
     </section>
 
-    <!-- NEW VIDEO SECTION -->
+    <!-- WBUDOWANY ODTWARZACZ VIDEO -->
     <section id="video">
         <h2>Predator Video Presentation</h2>
-        <p>Watch the official PREDATOR.mp4 showcase:</p>
-
-        <img src="video_icon.png" width="80" alt="Predator Video"
-             style="cursor:pointer; filter: drop-shadow(0 0 12px #5fd0ff); margin-top:10px;"
-             onclick="openVideo()">
-
-        <p style="color:#9fb4d6; font-size:0.9rem; margin-top:8px;">
-            Click the icon to open the video window.
-        </p>
+        <video controls style="width:100%; border-radius:10px; box-shadow:0 0 25px #5fd0ff;">
+            <source src="PREDATOR.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </section>
 
     <section id="credits">
@@ -266,32 +241,11 @@
 
 <button id="music-btn" onclick="toggleMusic()">Music ON/OFF</button>
 
-<!-- MODAL VIDEO WINDOW -->
-<div id="video-modal">
-    <div id="video-box">
-        <video id="predator-video" controls style="width:480px; max-width:90%; border-radius:8px;">
-            <source src="PREDATOR.mp4" type="video/mp4">
-        </video>
-    </div>
-</div>
-
 <script>
 function toggleMusic() {
     const audio = document.getElementById('bg-music');
     audio.paused ? audio.play() : audio.pause();
 }
-
-function openVideo() {
-    document.getElementById('video-modal').style.display = 'flex';
-    document.getElementById('predator-video').play();
-}
-
-document.getElementById('video-modal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        document.getElementById('predator-video').pause();
-        this.style.display = 'none';
-    }
-});
 </script>
 
 </body>
