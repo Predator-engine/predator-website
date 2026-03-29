@@ -112,24 +112,6 @@
             background: #26406b;
         }
 
-        /* Torch icon */
-        .torch-icon {
-            height: 1em;
-            vertical-align: middle;
-            margin-right: 6px;
-        }
-
-        #credits a {
-            color: #5fd0ff;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        #credits a:hover {
-            color: #9fe4ff;
-            text-decoration: underline;
-        }
-
         footer {
             text-align: center;
             font-size: 0.8rem;
@@ -196,7 +178,10 @@
         <p>Select the build that matches your system:</p>
 
         <a href="#">
-            <img src="torch.gif" class="torch-icon" alt="Hot build">
+            <video autoplay loop muted playsinline
+                   style="height:1em; vertical-align:middle; margin-right:6px; border-radius:3px;">
+                <source src="Fire.mp4" type="video/mp4">
+            </video>
             Windows x64 AVX2
         </a>
 
