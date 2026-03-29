@@ -72,14 +72,15 @@
             color: #c0c7e0;
         }
 
+        /* Raised content */
         main {
             max-width: 960px;
             margin: 0 auto;
-            padding: 30px 20px 60px;
+            padding: 5px 20px 40px; /* raised content */
         }
 
         section {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         h2 {
@@ -191,59 +192,4 @@
 
     <section id="downloads" class="downloads">
         <h2>Downloads</h2>
-        <p>Select the build that matches your system:</p>
-
-        <a href="#">Windows x64 AVX2</a>
-        <a href="#">Windows x64 BMI2</a>
-        <a href="#">Windows x64</a>
-
-        <a href="https://mega.nz/folder/JmBEWJSA#rOo5E9CAR-ixUA2WR5IWmA" target="_blank">
-            Source code (MEGA)
-        </a>
-    </section>
-
-    <section id="screens">
-        <h2>Branding & Screens</h2>
-        <p>Official Predator / SOLIDOR artwork:</p>
-        <div class="screenshot"></div>
-    </section>
-
-    <section id="credits">
-        <h2>Credits & License</h2>
         <p>
-            Predator / SOLIDOR is based on the Stockfish family and distributed under the
-            GNU General Public License (GPL). Please refer to the included license files
-            for full details.
-        </p>
-
-        <p>
-            Forum: <a href="https://solidor.forumpolish.com" target="_blank">solidor.forumpolish.com</a><br>
-            <span style="color:#c0c7e0;">Full technical documentation is available on the forum.</span>
-        </p>
-
-        <p>
-            Author: Eugeniusz Olesinski<br>
-            Contact: <a href="mailto:eolesinski70@gmail.com">eolesinski70@gmail.com</a><br>
-            Facebook: <a href="https://www.facebook.com/profile.php?id=100091875674531" target="_blank">
-                Visit my Facebook profile
-            </a>
-        </p>
-    </section>
-</main>
-
-<footer>
-    © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
-</footer>
-
-<!-- Music toggle button -->
-<button id="music-btn" onclick="toggleMusic()">Music ON/OFF</button>
-
-<script>
-function toggleMusic() {
-    const audio = document.getElementById('bg-music');
-    audio.paused ? audio.play() : audio.pause();
-}
-</script>
-
-</body>
-</html>
