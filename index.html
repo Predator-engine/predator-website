@@ -20,7 +20,6 @@
             align-items: center;
         }
 
-        /* ICCF – cold blue hologram */
         header img.logo-left {
             max-width: 260px;
             height: auto;
@@ -34,7 +33,6 @@
                 drop-shadow(0 0 45px #005eff);
         }
 
-        /* PREDATOR – red plasma glow */
         header img.logo-right {
             max-width: 260px;
             height: auto;
@@ -52,7 +50,6 @@
             flex: 1;
         }
 
-        /* Cosmic title */
         .header-center h1 {
             margin: 0;
             font-size: 3rem;
@@ -72,11 +69,10 @@
             color: #c0c7e0;
         }
 
-        /* Raised content */
         main {
             max-width: 960px;
             margin: 0 auto;
-            padding: 5px 20px 40px; /* raised content */
+            padding: 5px 20px 40px;
         }
 
         section {
@@ -135,7 +131,6 @@
             border-top: 1px solid #20263a;
         }
 
-        /* Music button */
         #music-btn {
             position: fixed;
             bottom: 20px;
@@ -150,11 +145,30 @@
             text-shadow: 0 0 6px #5fd0ff;
             box-shadow: 0 0 12px #1b8cff;
         }
+
+        /* Modal Video Window */
+        #video-modal {
+            display:none;
+            position:fixed;
+            top:0; left:0;
+            width:100%; height:100%;
+            background:rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            justify-content:center;
+            align-items:center;
+            z-index:9999;
+        }
+
+        #video-box {
+            background:#0b0f1d;
+            padding:10px;
+            border-radius:10px;
+            box-shadow:0 0 25px #5fd0ff;
+        }
     </style>
 </head>
 <body>
 
-<!-- Background music -->
 <audio id="bg-music" autoplay loop>
     <source src="PREDATOR.mp3" type="audio/mpeg">
 </audio>
@@ -209,6 +223,20 @@
         <div class="screenshot"></div>
     </section>
 
+    <!-- NEW VIDEO SECTION -->
+    <section id="video">
+        <h2>Predator Video Presentation</h2>
+        <p>Watch the official PREDATOR.mp4 showcase:</p>
+
+        <img src="video_icon.png" width="80" alt="Predator Video"
+             style="cursor:pointer; filter: drop-shadow(0 0 12px #5fd0ff); margin-top:10px;"
+             onclick="openVideo()">
+
+        <p style="color:#9fb4d6; font-size:0.9rem; margin-top:8px;">
+            Click the icon to open the video window.
+        </p>
+    </section>
+
     <section id="credits">
         <h2>Credits & License</h2>
         <p>
@@ -236,14 +264,34 @@
     © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
 </footer>
 
-<!-- Music toggle button -->
 <button id="music-btn" onclick="toggleMusic()">Music ON/OFF</button>
+
+<!-- MODAL VIDEO WINDOW -->
+<div id="video-modal">
+    <div id="video-box">
+        <video id="predator-video" controls style="width:480px; max-width:90%; border-radius:8px;">
+            <source src="PREDATOR.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
 
 <script>
 function toggleMusic() {
     const audio = document.getElementById('bg-music');
     audio.paused ? audio.play() : audio.pause();
 }
+
+function openVideo() {
+    document.getElementById('video-modal').style.display = 'flex';
+    document.getElementById('predator-video').play();
+}
+
+document.getElementById('video-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        document.getElementById('predator-video').pause();
+        this.style.display = 'none';
+    }
+});
 </script>
 
 </body>
