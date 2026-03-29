@@ -20,8 +20,15 @@
             align-items: center;
         }
 
-        /* Both logos identical size and glow */
-        header img.logo {
+        /* ICCF logo (smaller, proportional) */
+        header img.logo-left {
+            max-width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 18px rgba(95, 208, 255, 0.55));
+        }
+
+        /* Predator logo (main logo) */
+        header img.logo-right {
             max-width: 340px;
             height: auto;
             filter: drop-shadow(0 0 18px rgba(95, 208, 255, 0.55));
@@ -88,17 +95,6 @@
             background: #26406b;
         }
 
-        .screenshot {
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .screenshot img {
-            max-width: 100%;
-            border-radius: 6px;
-            box-shadow: 0 0 18px rgba(0,0,0,0.7);
-        }
-
         #credits a {
             color: #5fd0ff;
             font-weight: bold;
@@ -122,14 +118,14 @@
 <body>
 
 <header>
-    <img src="ICCF.png" alt="ICCF Logo" class="logo">
+    <img src="ICCF.png" alt="ICCF Logo" class="logo-left">
 
     <div class="header-center">
         <h1>Chess Engines “PREDATOR” / SOLIDOR</h1>
         <p class="tagline">Aggressive, cosmic-strength UCI chess engine for modern hardware.</p>
     </div>
 
-    <img src="PREDATOR.png" alt="Predator Engine Logo" class="logo">
+    <img src="PREDATOR.png" alt="Predator Engine Logo" class="logo-right">
 </header>
 
 <main>
