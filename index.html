@@ -5,13 +5,39 @@
     <title>PREDATOR — Born for Victory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        :root {
-            --predator-blue: #5fd0ff;
-            --predator-blue-strong: #1b8cff;
-            --predator-red: #ff3b3b;
-            --bg-main: #050814;
-        }
+   <style>
+    :root {
+        --predator-blue: #5fd0ff;
+        --predator-blue-strong: #1b8cff;
+        --predator-red: #ff3b3b;
+        --bg-main: #050814;
+    }
+
+    #visitor-counter {
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        font-size: 1.15rem;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 6px #00aaff, 0 0 12px #00aaff;
+        animation: glowPulse 2.8s infinite ease-in-out;
+    }
+
+    @keyframes glowPulse {
+        0% { text-shadow: 0 0 6px #00aaff; }
+        50% { text-shadow: 0 0 18px #00ccff; }
+        100% { text-shadow: 0 0 6px #00aaff; }
+    }
+
+    .footer-line {
+        text-align: center;
+        color: #cccccc;
+        margin-top: 5px;
+        font-size: 0.9rem;
+        opacity: 0.85;
+    }
 
         * { box-sizing: border-box; }
 
@@ -648,9 +674,14 @@ async function updateVisitorCount() {
 updateVisitorCount();
 </script>
 
-<div id="visitor-counter" style="color:white; font-weight:bold; margin-top:20px; text-align:center;">
-    Visitors: <span id="visitor-count">...</span>
+<div id="visitor-counter">
+    Visitors: <span id="visitor-count">Loading...</span>
 </div>
+
+<div class="footer-line">
+    © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
+</div>
+
 
 <script src="counter.js"></script>
 
