@@ -10,7 +10,6 @@
             --predator-blue: #5fd0ff;
             --predator-blue-strong: #1b8cff;
             --predator-red: #ff3b3b;
-            --bg-main: #050814;
         }
 
         * { box-sizing: border-box; }
@@ -277,6 +276,7 @@
 </section>
 
 </main>
+
 <footer>
     © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
 
@@ -292,10 +292,8 @@
     </div>
 </footer>
 
-<!-- MUSIC BUTTON -->
 <button id="music-btn" onclick="toggleMusic()">Music ON/OFF</button>
 
-<!-- MUSIC SCRIPT -->
 <script>
 const audio = document.getElementById('bg-music');
 let musicEnabled = false;
@@ -314,7 +312,6 @@ function toggleMusic() {
 }
 </script>
 
-<!-- CLOCK + DATE SCRIPT -->
 <script>
 function updateClock() {
     const now = new Date();
@@ -339,7 +336,6 @@ setInterval(updateClock, 1000);
 updateClock();
 </script>
 
-<!-- ONLINE USERS COUNTER SCRIPT -->
 <script>
 async function updateOnline() {
     try {
@@ -356,7 +352,6 @@ setInterval(updateOnline, 5000);
 updateOnline();
 </script>
 
-<!-- SOLIDOR MODE SCRIPT -->
 <script>
 function toggleSolidorMode() {
     document.body.classList.toggle("solidor-mode");
