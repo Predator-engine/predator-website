@@ -458,20 +458,9 @@
 
             <p>Official presentation of the Predator engine.</p>
         </div>
-  </section> 
-<section id="artwork-slider">
-    <h2>Artwork Gallery</h2>
-    <div class="slider-container">
-        <div class="slider-track">
-            <img src="SOLIDOR.png" alt="Artwork 1">
-            <img src="PREDATOR.png" alt="Artwork 2">
-            <img src="ICCF.png" alt="Artwork 3">
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="credits">
-
+    <section id="screens">
         <h2>Branding & Screens</h2>
         <p>Official Predator / SOLIDOR artwork:</p>
 
@@ -550,17 +539,6 @@
 
 <footer>
     © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
-
-    <!-- VISITOR COUNTER -->
-    <div style="margin-top: 10px;">
-        <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=7&type=page&initCount=0" 
-             title="Visitor Counter" alt="web counter" border="0" />
-    </div>
-
-    <!-- ONLINE USERS COUNTER -->
-    <div id="online-counter" style="margin-top: 10px; color:#5fd0ff; font-size:0.9rem;">
-        Online now: loading...
-    </div>
 </footer>
 
 <!-- MUSIC BUTTON -->
@@ -609,23 +587,6 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
-</script>
-
-<!-- ONLINE COUNTER SCRIPT -->
-<script>
-async function updateOnline() {
-    try {
-        const res = await fetch("https://api.countapi.xyz/hit/predator-engine/online");
-        const data = await res.json();
-        document.getElementById("online-counter").textContent =
-            "Online now: " + data.value;
-    } catch(e) {
-        document.getElementById("online-counter").textContent =
-            "Online now: unavailable";
-    }
-}
-setInterval(updateOnline, 5000);
-updateOnline();
 </script>
 
 </body>
