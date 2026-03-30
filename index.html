@@ -12,6 +12,20 @@
         --predator-red: #ff3b3b;
         --bg-main: #050814;
     }
+      #visitor-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#predator-icon {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 0 6px #00aaff);
+}
+
+
      #visitor-count {
     font-size: 1.6rem;
     font-weight: 900;
@@ -681,13 +695,9 @@ updateVisitorCount();
 </script>
 
 <div id="visitor-counter">
+    <img src="predator.png" id="predator-icon">
     You are the next visitor on this page: <span id="visitor-count">...</span>
 </div>
-
-<div class="footer-line">
-    © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
-</div>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     let count = localStorage.getItem("predator_visits");
