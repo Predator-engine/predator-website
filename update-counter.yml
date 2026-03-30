@@ -1,0 +1,29 @@
+name: Update Visitor Counter
+
+on:
+  repository_dispatch:
+    types: [update-counter]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Read counter
+        id: read
+        run: |
+          if [ ! -f counter.txt ]; then echo 0 > counter.txt; fi
+          COUNT=$(cat counter.txt)
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
+
+      - name: Increase counter
+        run: |
+          COUNT=$((${{ steps.read.outputs.count }} + 1))
+          echo $COUNT > counter.txt
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update counter"
