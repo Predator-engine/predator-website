@@ -20,9 +20,55 @@
             font-family: system-ui, sans-serif;
             background: radial-gradient(circle at top, #0b1024 0, #050814 55%, #02030a 100%);
             color: #f5f5f5;
+            transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* TOP BAR — TIME + DATE + HEARTBEAT */
+        /* SOLIDOR MODE */
+        .solidor-mode {
+            background: radial-gradient(circle at top, #240000 0, #0a0000 60%);
+            color: #ffb3b3;
+        }
+        .solidor-mode h2 {
+            color: #ff4d4d;
+            text-shadow: 0 0 12px #ff1a1a;
+        }
+        .solidor-mode a {
+            border-color: #ff4d4d !important;
+            box-shadow: 0 0 12px #ff1a1a !important;
+        }
+        .solidor-mode #music-btn {
+            border-color: #ff4d4d;
+            color: #ff4d4d;
+        }
+        .solidor-mode #solidor-mode-btn {
+            background: #5a0000;
+        }
+
+        /* SOLIDOR MODE BUTTON */
+        #solidor-mode-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 8px 14px;
+            background: #2b0a0a;
+            color: #ff3b3b;
+            border: 1px solid #ff3b3b;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-shadow: 0 0 6px #ff3b3b;
+            box-shadow:
+                0 0 12px rgba(255,60,60,0.8),
+                0 0 26px rgba(0,0,0,0.9);
+            transition: 0.2s;
+            z-index: 999;
+        }
+        #solidor-mode-btn:hover {
+            transform: scale(1.05);
+            background: #3d0f0f;
+        }
+
+        /* TOP BAR */
         #top-info-bar {
             width: 100%;
             display: flex;
@@ -36,37 +82,10 @@
             animation: heartbeatGlow 2.4s ease-in-out infinite;
         }
 
-        #current-time,
-        #current-date {
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-
         @keyframes heartbeatGlow {
             0%   { box-shadow: 0 0 10px rgba(95,208,255,0.4); }
             50%  { box-shadow: 0 0 22px rgba(95,208,255,0.9); }
             100% { box-shadow: 0 0 10px rgba(95,208,255,0.4); }
-        }
-
-        @keyframes fadeInSoft {
-            from { opacity: 0; transform: translateY(8px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.96); }
-            to   { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes glowPulse {
-            0%   { box-shadow: 0 0 10px rgba(95,208,255,0.4), 0 0 25px rgba(27,140,255,0.3); }
-            50%  { box-shadow: 0 0 18px rgba(95,208,255,0.9), 0 0 40px rgba(27,140,255,0.7); }
-            100% { box-shadow: 0 0 10px rgba(95,208,255,0.4), 0 0 25px rgba(27,140,255,0.3); }
-        }
-
-        @keyframes plasmaLineFlow {
-            0%   { background-position: 0 0; }
-            100% { background-position: 120px 0; }
         }
 
         header {
@@ -77,32 +96,12 @@
             align-items: center;
             border-bottom: 1px solid #20263a;
             box-shadow: 0 0 30px rgba(0,0,0,0.8);
-            animation: fadeInSoft 0.7s ease-out;
         }
 
-        header img.logo-left {
-            max-width: 260px;
-            height: auto;
-            filter:
-                brightness(1.55)
-                contrast(1.25)
-                saturate(1.6)
-                hue-rotate(200deg)
-                drop-shadow(0 0 12px #5fd0ff)
-                drop-shadow(0 0 24px #1b8cff)
-                drop-shadow(0 0 45px #005eff);
-        }
-
+        header img.logo-left,
         header img.logo-right {
             max-width: 260px;
             height: auto;
-            filter:
-                brightness(1.45)
-                contrast(1.35)
-                saturate(1.8)
-                drop-shadow(0 0 14px #ff3b3b)
-                drop-shadow(0 0 28px #ff1a1a)
-                drop-shadow(0 0 55px #ff0000);
         }
 
         .header-center {
@@ -124,64 +123,6 @@
                 0 0 60px #005eff;
         }
 
-        .header-center p.tagline {
-            margin-top: 10px;
-            font-size: 1rem;
-            color: #c0c7e0;
-        }
-
-        .creator-photo-wrapper {
-            margin-top: 22px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            animation: fadeInSoft 0.8s ease-out;
-        }
-
-        .creator-photo-frame {
-            padding: 10px;
-            border-radius: 14px;
-            background: rgba(10,20,40,0.65);
-            box-shadow:
-                0 0 22px rgba(95,208,255,0.9),
-                0 0 55px rgba(27,140,255,0.7),
-                inset 0 0 18px rgba(95,208,255,0.5);
-            animation: glowPulse 2.8s ease-in-out infinite;
-        }
-
-        .creator-photo {
-            width: 240px;
-            border-radius: 10px;
-            animation: fadeInSoft 1.1s ease-out;
-        }
-
-        .creator-line {
-            width: 180px;
-            height: 4px;
-            margin-top: 12px;
-            border-radius: 999px;
-            background-image: linear-gradient(
-                90deg,
-                rgba(95,208,255,0.1),
-                rgba(95,208,255,1),
-                rgba(27,140,255,0.2)
-            );
-            background-size: 140px 4px;
-            animation: plasmaLineFlow 1.8s linear infinite;
-            box-shadow: 0 0 14px rgba(95,208,255,0.9);
-        }
-
-        .creator-signature {
-            margin: 10px 0 0;
-            font-size: 1.05rem;
-            color: #d2eaff;
-            text-shadow:
-                0 0 6px rgba(95,208,255,0.9),
-                0 0 14px rgba(27,140,255,0.8);
-            animation: fadeInSoft 1.4s ease-out;
-        }
-
         main {
             max-width: 960px;
             margin: 0 auto;
@@ -195,284 +136,84 @@
             border-radius: 10px;
             border: 1px solid #20263a;
             box-shadow: 0 0 22px rgba(0,0,0,0.7);
-            animation: fadeInScale 0.6s ease-out;
         }
 
-        h2 {
-            font-size: 1.35rem;
-            margin: 0 0 12px;
-            color: #e4e8ff;
-            text-shadow: 0 0 8px rgba(95,208,255,0.7);
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 140px;
-            height: 3px;
-            border-radius: 999px;
-            background-image: linear-gradient(
-                90deg,
-                rgba(95,208,255,0.1),
-                rgba(95,208,255,0.9),
-                rgba(27,140,255,0.2)
-            );
-            background-size: 120px 3px;
-            animation: plasmaLineFlow 1.8s linear infinite;
-            box-shadow: 0 0 12px rgba(95,208,255,0.8);
-        }
-
-        p {
-            margin: 6px 0 0;
-            line-height: 1.5;
-            color: #d2d6f0;
-        }
-
-        .features ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 8px 0 0;
-        }
-
-        .features li {
-            margin: 4px 0;
-        }
-
-        .features li::before {
-            content: "• ";
-            color: var(--predator-blue);
-        }
-
-        .downloads a {
-            display: inline-block;
-            margin: 8px 10px 8px 0;
-            padding: 10px 18px;
-            border-radius: 6px;
-            background: radial-gradient(circle at top, #24345a 0, #141a2b 60%);
-            color: #f5f5f5;
-            text-decoration: none;
-            font-size: 0.95rem;
-            border: 1px solid rgba(95,208,255,0.7);
-            box-shadow:
-                0 0 10px rgba(27,140,255,0.4),
-                0 0 18px rgba(0,0,0,0.9);
-            transition: transform 0.15s ease-out,
-                        box-shadow 0.15s ease-out,
-                        background 0.15s ease-out;
-        }
-
-        .downloads a:hover {
-            transform: scale(1.04) translateY(-1px);
-            background: radial-gradient(circle at top, #2f4b7f 0, #151d33 60%);
-            box-shadow:
-                0 0 16px rgba(95,208,255,0.9),
-                0 0 30px rgba(27,140,255,0.8);
-        }
-
-        .downloads-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 10px;
-        }
-
-        .downloads-left { flex: 1; }
-
-        .downloads-right {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 140px;
-            animation: fadeInSoft 0.8s ease-out;
-        }
-
-        .downloads-right video {
-            height: 6.2em;
-            border-radius: 6px;
-            animation: glowPulse 2.4s ease-in-out infinite;
-        }
-
-        .video-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 16px;
-            margin-top: 10px;
-        }
-
-        .video-wrapper video {
-            width: 52%;
+        /* SLIDER */
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
             border-radius: 12px;
             box-shadow:
                 0 0 18px rgba(95,208,255,0.9),
                 0 0 40px rgba(27,140,255,0.7);
-            animation: fadeInSoft 0.8s ease-out;
+        }
+        .slider-track {
+            display: flex;
+            animation: slide 12s infinite linear;
+        }
+        .slider-track img {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 12px;
+            border-radius: 12px;
+            filter:
+                brightness(1.3)
+                contrast(1.2)
+                saturate(1.4)
+                drop-shadow(0 0 12px #5fd0ff);
+        }
+        @keyframes slide {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
-        /* MUSIC BUTTON — BLUE NEON */
-        #music-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 18px;
-            background: #0b1428;
-            color: #5fd0ff;
-            border: 1px solid #5fd0ff;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            text-shadow: 0 0 6px #5fd0ff;
-            box-shadow:
-                0 0 12px rgba(27,140,255,0.8),
-                0 0 26px rgba(0,0,0,0.9);
-            transition: transform 0.15s ease-out,
-                        box-shadow 0.15s ease-out,
-                        background 0.15s ease-out;
-            z-index: 50;
-        }
-
-        #music-btn:hover {
-            transform: scale(1.05) translateY(-1px);
-            background: #122038;
-            box-shadow:
-                0 0 18px rgba(95,208,255,1),
-                0 0 32px rgba(27,140,255,0.9);
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #8086a0;
-            padding: 20px 0;
-            border-top: 1px solid #20263a;
-            background: rgba(3,5,15,0.95);
-            box-shadow: 0 -10px 25px rgba(0,0,0,0.9);
-        }
     </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
+<button id="solidor-mode-btn" onclick="toggleSolidorMode()">SOLIDOR MODE</button>
+
 <div id="top-info-bar">
     <div id="current-time"></div>
     <div id="current-date"></div>
 </div>
 
-<!-- MUSIC: AUTOSTART MUTED -->
 <audio id="bg-music" muted loop>
     <source src="PREDATOR.mp3" type="audio/mpeg">
 </audio>
 
 <header>
-    <img src="ICCF.png" alt="ICCF Logo" class="logo-left">
-
+    <img src="ICCF.png" class="logo-left">
     <div class="header-center">
         <h1>PREDATOR — Born for Victory</h1>
-        <p class="tagline">Aggressive, cosmic-strength UCI chess engine for modern hardware.</p>
-
-        <!-- CREATOR PHOTO BLOCK -->
-        <div class="creator-photo-wrapper">
-
-            <div class="creator-photo-frame">
-                <img src="PREDATOR_2.png" class="creator-photo" alt="Author photo">
-            </div>
-
-            <div class="creator-line"></div>
-
-            <p class="creator-signature">
-                Author of the Predator / SOLIDOR engine — Eugeniusz Olesinski
-            </p>
-
-        </div>
     </div>
-
-    <img src="PREDATOR.png" alt="Predator Engine Logo" class="logo-right">
+    <img src="PREDATOR.png" class="logo-right">
 </header>
 
 <main>
-    <section id="about">
-        <h2>About Predator</h2>
-        <p>
-            Predator is a UCI-compatible chess engine focused on dynamic, sharp play and
-            modern search techniques. Built for practical strength, it combines speed,
-            clarity of options and a distinctive identity.
-        </p>
-    </section>
 
-    <section id="features" class="features">
-        <h2>Key Features</h2>
-        <ul>
-            <li>UCI engine with MultiPV, Syzygy tablebases and flexible options.</li>
-            <li>Support for modern hardware (AVX2 builds, multi-threading, large hash).</li>
-            <li>Configurable opening books (FenBook, CTG, multiple sources).</li>
-            <li>Human-like randomness and strength scaling for training and fun.</li>
-        </ul>
-    </section>
+<section id="screens">
+    <h2>Branding & Screens</h2>
+    <p>Official Predator / SOLIDOR artwork:</p>
 
-    <section id="downloads" class="downloads">
-        <h2>Downloads</h2>
-        <p>Select the build that matches your system:</p>
-
-        <div class="downloads-row">
-            <div class="downloads-left">
-
-                <a href="https://mega.nz/folder/M3A3QLrR#ewQZRRHgsWpyJLuClE8aSA" target="_blank">
-                    Windows x64 AVX2
-                </a>
-
-                <a href="https://mega.nz/folder/UrgnDLiI#NVMuK7NKztxWgJdW9gU-Og" target="_blank">
-                    Windows x64 BMI2
-                </a>
-
-                <a href="https://mega.nz/folder/hignGY7B#wRbCsbjEjCbC2uLpKvgwNQ" target="_blank">
-                    Windows x64
-                </a>
-
-                <a href="https://mega.nz/folder/JmBEWJSA#rOo5E9CAR-ixUA2WR5IWmA" target="_blank">
-                    Source code (MEGA)
-                </a>
-
-            </div>
-
-            <div class="downloads-right">
-                <video autoplay loop muted playsinline>
-                    <source src="Fire.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    </section>
-
-    <section id="video">
-        <h2>Predator Video Presentation</h2>
-
-        <div class="video-wrapper">
-            <video autoplay loop muted playsinline>
-                <source src="PREDATOR.mp4" type="video/mp4">
-            </video>
-
-            <p>Official presentation of the Predator engine.</p>
-        </div>
-    </section>
-
-    <section id="screens">
-        <h2>Branding & Screens</h2>
-        <p>Official Predator / SOLIDOR artwork:</p>
-
-        <!-- SOLIDOR LOGO — NEON PRESENTATION -->
-        <div style="margin: 30px 0; text
-        <!-- SOLIDOR LOGO — NEON PRESENTATION -->
-        <div style="margin: 30px 0; text-align: center;">
+    <div style="margin: 30px 0; text-align: center;">
+        <div style="
+            display: inline-block;
+            padding: 18px;
+            border-radius: 18px;
+            animation: glowPulse 3s ease-in-out infinite;
+            box-shadow:
+                0 0 22px #5fd0ff,
+                0 0 45px #1b8cff,
+                0 0 70px #005eff;
+        ">
             <img src="SOLIDOR.png" alt="SOLIDOR Logo"
                  style="
-                    max-width: 304px; /* 20% smaller */
+                    max-width: 304px;
                     height: auto;
-                    border-radius: 14px;
+                    border-radius: 12px;
                     filter:
                         brightness(1.35)
                         contrast(1.25)
@@ -480,65 +221,62 @@
                         drop-shadow(0 0 18px #5fd0ff)
                         drop-shadow(0 0 35px #1b8cff)
                         drop-shadow(0 0 55px #005eff);
-                    animation: glowPulse 3s ease-in-out infinite, fadeInSoft 1s ease-out;
                  ">
         </div>
+    </div>
 
-        <!-- EXTRA BUTTON: WINDOWS x64 — 32# -->
-        <div style="margin-top: 20px; text-align: center;">
-            <a href="https://mega.nz/folder/dvJlhDDD#hZix25OrGPat-FbhvyjKgw" target="_blank"
-               style="
-                    display: inline-block;
-                    margin: 8px 10px 8px 0;
-                    padding: 10px 18px;
-                    border-radius: 6px;
-                    background: radial-gradient(circle at top, #24345a 0, #141a2b 60%);
-                    color: #f5f5f5;
-                    text-decoration: none;
-                    font-size: 0.95rem;
-                    border: 1px solid rgba(95,208,255,0.7);
-                    box-shadow:
-                        0 0 10px rgba(27,140,255,0.4),
-                        0 0 18px rgba(0,0,0,0.9);
-                    transition: transform 0.15s ease-out,
-                                box-shadow 0.15s ease-out,
-                                background 0.15s ease-out;
-               ">
-                Windows x64 — 32#
-            </a>
+    <div style="margin-top: 10px; text-align: center;">
+        <a href="https://mega.nz/folder/dvJlhDDD#hZix25OrGPat-FbhvyjKgw" target="_blank"
+           style="
+                display: inline-block;
+                padding: 10px 18px;
+                border-radius: 6px;
+                background: radial-gradient(circle at top, #24345a 0, #141a2b 60%);
+                color: #f5f5f5;
+                text-decoration: none;
+                font-size: 0.95rem;
+                border: 1px solid rgba(95,208,255,0.7);
+                box-shadow:
+                    0 0 10px rgba(27,140,255,0.4),
+                    0 0 18px rgba(0,0,0,0.9);
+           ">
+            Windows x64 — 32#
+        </a>
+    </div>
+</section>
+
+<section id="artwork-slider">
+    <h2>Artwork Gallery</h2>
+
+    <div class="slider-container">
+        <div class="slider-track">
+            <img src="SOLIDOR.png" alt="Artwork 1">
+            <img src="PREDATOR.png" alt="Artwork 2">
+            <img src="ICCF.png" alt="Artwork 3">
         </div>
+    </div>
+</section>
 
-        <div class="screenshot"></div>
-    </section>
+<section id="credits">
+    <h2>Credits & License</h2>
+    <p>
+        Predator / SOLIDOR is based on the Stockfish family and distributed under the
+        GNU General Public License (GPL). Please refer to the included license files
+        for full details.
+    </p>
+    <p>
+        Forum:
+        <a href="https://solidor.forumpolish.com" target="_blank">
+            solidor.forumpolish.com
+        </a>
+    </p>
+    <p>
+        Author: Eugeniusz Olesinski<br>
+        Contact: <a href="mailto:eolesinski70@gmail.com">eolesinski70@gmail.com</a>
+    </p>
+</section>
 
-    <section id="credits">
-        <h2>Credits & License</h2>
-
-        <p>
-            Predator / SOLIDOR is based on the Stockfish family and distributed under the
-            GNU General Public License (GPL). Please refer to the included license files
-            for full details.
-        </p>
-
-        <p>
-            Forum:
-            <a href="https://solidor.forumpolish.com" target="_blank">
-                solidor.forumpolish.com
-            </a><br>
-            <span style="color:#c0c7e0;">Full technical documentation is available on the forum.</span>
-        </p>
-
-        <p>
-            Author: Eugeniusz Olesinski<br>
-            Contact: <a href="mailto:eolesinski70@gmail.com">eolesinski70@gmail.com</a><br>
-            Facebook:
-            <a href="https://www.facebook.com/profile.php?id=100091875674531" target="_blank">
-                Visit my Facebook profile
-            </a>
-        </p>
-    </section>
 </main>
-
 <footer>
     © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
 
@@ -546,6 +284,11 @@
     <div style="margin-top: 10px;">
         <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=7&type=page&initCount=0" 
              title="Visitor Counter" alt="web counter" border="0" />
+    </div>
+
+    <!-- ONLINE USERS COUNTER -->
+    <div id="online-counter" style="margin-top: 10px; color:#5fd0ff; font-size:0.9rem;">
+        Online now: loading...
     </div>
 </footer>
 
@@ -557,7 +300,6 @@
 const audio = document.getElementById('bg-music');
 let musicEnabled = false;
 
-// allow autoplay muted
 audio.play().catch(() => {});
 
 function toggleMusic() {
@@ -595,6 +337,30 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
+</script>
+
+<!-- ONLINE USERS COUNTER SCRIPT -->
+<script>
+async function updateOnline() {
+    try {
+        const res = await fetch("https://api.countapi.xyz/hit/predator-engine/online");
+        const data = await res.json();
+        document.getElementById("online-counter").textContent =
+            "Online now: " + data.value;
+    } catch(e) {
+        document.getElementById("online-counter").textContent =
+            "Online now: unavailable";
+    }
+}
+setInterval(updateOnline, 5000);
+updateOnline();
+</script>
+
+<!-- SOLIDOR MODE SCRIPT -->
+<script>
+function toggleSolidorMode() {
+    document.body.classList.toggle("solidor-mode");
+}
 </script>
 
 </body>
