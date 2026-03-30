@@ -682,9 +682,21 @@ updateVisitorCount();
     © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    let count = localStorage.getItem("predator_visits");
 
-<script src="counter.js"></script>
+    if (!count) {
+        count = 1;
+    } else {
+        count = parseInt(count) + 1;
+    }
 
+    localStorage.setItem("predator_visits", count);
+
+    document.getElementById("visitor-count").textContent = count;
+});
+</script>
 
 </body>
 </html>
