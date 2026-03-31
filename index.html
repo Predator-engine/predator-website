@@ -123,6 +123,19 @@ img:focus, img:active {
     from { filter: drop-shadow(0 0 10px #ff2a00); }
     to   { filter: drop-shadow(0 0 30px #ff6a00); }
    }
+.credits-text a {
+    color: #5fd0ff;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(95,208,255,0.55);
+    transition: 0.15s ease-out;
+}
+
+.credits-text a:hover {
+    color: #9fe4ff;
+    text-shadow: 0 0 12px rgba(95,208,255,0.9);
+}
+
 
         * { box-sizing: border-box; }
 
@@ -642,7 +655,7 @@ img:focus, img:active {
         <div class="screenshot"></div>
     </section>
 
-    <section id="credits">
+   <section id="credits" class="credits-text">
         <h2>Credits & License</h2>
 
         <p>
