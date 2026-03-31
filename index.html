@@ -103,7 +103,22 @@ img:focus, img:active {
     position: relative;
     left: -34px; 
 }
+.solidor-btn {
+    background: radial-gradient(circle at top, #24345a 0, #141a2b 60%);
+    box-shadow:
+        0 0 10px rgba(27,140,255,0.4),
+        0 0 18px rgba(0,0,0,0.9);
+}
 
+.solidor-btn:hover {
+    background: radial-gradient(circle at top, #2f4b7a 0, #0f1523 70%);
+    box-shadow:
+        0 0 14px rgba(95,208,255,0.8),
+        0 0 26px rgba(27,140,255,0.6),
+        0 0 40px rgba(0,0,0,1);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
     @keyframes fireGlow {
     from { filter: drop-shadow(0 0 10px #ff2a00); }
     to   { filter: drop-shadow(0 0 30px #ff6a00); }
@@ -602,7 +617,7 @@ img:focus, img:active {
 </div>
         <!-- EXTRA BUTTON: SOLIDOR_x64 — 32# -->
         <div style="margin-top: 20px; text-align: left;">
-            <a href="https://mega.nz/folder/dvJlhDDD#hZix25OrGPat-FbhvyjKgw" target="_blank"
+            <a href="https://mega.nz/folder/dvJlhDDD#hZix25OrGPat-FbhvyjKgw" target="_blank" class="solidor-btn"
                style="
                     display: inline-block;
                     margin: 8px 10px 8px 0;
