@@ -66,22 +66,48 @@
         opacity: 0.85;
     }
 
-.fire-logo {
+  .fire-logo {
     width: 160px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 12px;
+    margin-top: 22px;
     margin-bottom: 14px;
-    transform: translateX(8px);
+    transform: translateX(18px); 
     filter: drop-shadow(0 0 18px #ff4500);
     animation: fireGlow 3s infinite alternate;
 }
 
-@keyframes fireGlow {
+
+.downloads-right a {
+    display: inline-block;
+    outline: none;
+    border: none;
+}
+
+
+a, a:focus, a:active, a:hover {
+    outline: none !important;
+    border: none !important;
+}
+
+img:focus, img:active {
+    outline: none !important;
+    border: none !important;
+}
+
+    .fire-video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: -34px; 
+}
+
+    @keyframes fireGlow {
     from { filter: drop-shadow(0 0 10px #ff2a00); }
     to   { filter: drop-shadow(0 0 30px #ff6a00); }
-}
+   }
 
         * { box-sizing: border-box; }
 
@@ -523,12 +549,19 @@
             </div>
 
      <div class="downloads-right">
-    <video autoplay loop muted playsinline>
-        <source src="Fire.mp4" type="video/mp4">
-    </video>
+   <video class="fire-video" autoplay loop muted playsinline>
+    <source src="Fire.mp4" type="video/mp4">
+</video>
 
+
+ <a href="https://mega.nz/folder/MyhSxTKD#mmEEe174IlHM_pIxrt6w8Q" target="_blank">
     <img src="book.png" alt="book logo" class="fire-logo">
+</a>
+
+<a href="https://mega.nz/folder/drJExTZR#GuhZ5rm9r0mo_c6iD6ZBKw" target="_blank">
     <img src="book1.png" alt="book1 logo" class="fire-logo">
+</a>
+
 </div>
       
     </section>
