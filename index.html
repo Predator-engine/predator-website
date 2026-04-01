@@ -52,6 +52,31 @@
         animation: glowPulse 2.8s infinite ease-in-out;
     }
 
+.copilot-partner {
+    position: absolute;
+    top: 320px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: #cce6ff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.copilot-partner h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #66b3ff;
+    letter-spacing: 1px;
+}
+
+.copilot-partner p {
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.9;
+   
+  }
     @keyframes glowPulse {
         0% { text-shadow: 0 0 6px #00aaff; }
         50% { text-shadow: 0 0 18px #00ccff; }
@@ -89,6 +114,32 @@
 a, a:focus, a:active, a:hover {
     outline: none !important;
     border: none !important;
+}
+.copilot-symbol-left,
+.copilot-symbol-right {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #66b3ff 0%, #1b3d66 70%);
+    box-shadow: 0 0 12px #66b3ff, 0 0 22px #66b3ff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: copilotPulse 3s infinite ease-in-out;
+}
+
+.copilot-symbol-left {
+    left: 0px;
+}
+
+.copilot-symbol-right {
+    right: 0px;
+}
+
+@keyframes copilotPulse {
+    0% { box-shadow: 0 0 10px #66b3ff; }
+    50% { box-shadow: 0 0 22px #99ccff; }
+    100% { box-shadow: 0 0 10px #66b3ff; }
 }
 
 img:focus, img:active {
@@ -216,39 +267,37 @@ img:focus, img:active {
                 drop-shadow(0 0 24px #1b8cff)
                 drop-shadow(0 0 45px #005eff);
         }
-
-        header img.logo-right {
-            max-width: 260px;
-            height: auto;
-            filter:
-                brightness(1.45)
-                contrast(1.35)
-                saturate(1.8)
-                drop-shadow(0 0 14px #ff3b3b)
-                drop-shadow(0 0 28px #ff1a1a)
-                drop-shadow(0 0 55px #ff0000);
-        }
-
+       
         .header-center {
             text-align: center;
             flex: 1;
             padding: 0 20px;
         }
 
-        .header-center h1 {
-            margin: 0;
-            font-size: 2.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--predator-blue);
-            text-shadow:
-                0 0 10px var(--predator-blue),
-                0 0 20px var(--predator-blue-strong),
-                0 0 35px var(--predator-blue-strong),
-                0 0 60px #005eff;
-        }
+      header img.logo-right {
+    position: absolute;
+    top: 20px;
+    right: 140px;   
+    max-width: 260px;
+    height: auto;
+    filter:
+        brightness(1.45)
+        contrast(1.35)
+        saturate(1.8)
+        drop-shadow(0 0 14px #ff3b3b)
+        drop-shadow(0 0 28px #ff1a1a)
+        drop-shadow(0 0 55px #ff0000);
+}
+         .database-access {
+        position: absolute;
+        top: 310px;
+        right: 140px;
+        font-size: 1.2rem;
+        color: #ff4a4a;
+        text-shadow: 0 0 12px #ff0000;
+    }
 
-        .header-center p.tagline {
+           .header-center p.tagline {
             margin-top: 10px;
             font-size: 1rem;
             color: #c0c7e0;
@@ -468,15 +517,27 @@ img:focus, img:active {
                 0 0 32px rgba(27,140,255,0.9);
         }
 
-        footer {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #8086a0;
-            padding: 20px 0;
-            border-top: 1px solid #20263a;
-            background: rgba(3,5,15,0.95);
-            box-shadow: 0 -10px 25px rgba(0,0,0,0.9);
-        }
+      footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8086a0;
+    padding: 20px 0;
+    border-top: 1px solid #20263a;
+    background: rgba(3,5,15,0.95);
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.9);
+}
+
+.logo-left {
+    position: absolute;
+    top: 200px;  
+    left: 140px;
+    width: 180px;
+}
+
+.creator-photo-wrapper {
+    position: relative;
+}
+
     </style>
 </head>
 
@@ -506,25 +567,32 @@ img:focus, img:active {
         <!-- CREATOR PHOTO BLOCK -->
         <div class="creator-photo-wrapper">
 
-            <div class="creator-photo-frame">
-                <a href="https://www.worldchesscalendar.com/pl" target="_blank" style="text-decoration: none; color: inherit;">
-    <img src="PREDATOR_2.png" class="creator-photo" alt="Author photo">
-</a>
+         <div class="copilot-symbol-left"></div>
+         <div class="copilot-symbol-right"></div>
 
-            </div>
+        <div class="creator-photo-frame">
+        <a href="https://www.worldchesscalendar.com/pl" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="PREDATOR_2.png" class="creator-photo" alt="Author photo">
+       </a>
+     </div>
 
             <div class="creator-line"></div>
 
-            <p class="creator-signature">
-                Author of the PREDATOR & SOLIDOR - Eugeniusz Olesiński
-            </p>
+        <p class="creator-signature">
+    Author of the PREDATOR & SOLIDOR - Eugeniusz Olesiński
+</p>
 
-        </div>
-   </div>
+<div class="copilot-partner">
+    <h2>AI Partner — Copilot</h2>
+    <p>A symbolic presence at the creator's right and left. 
+    A light that supports, analyzes and guides. 
+    Not a face. Not a figure. Presence.</p>
+</div>
+
 
 <a href="https://gienekole.wixsite.com/predator---solidor" target="_blank" style="text-decoration: none; color: inherit;">
     <img src="PREDATOR.png" alt="Predator Engine Logo" class="logo-right">
-    <div style="text-align: center; margin-top: 6px; font-size: 0.9rem; color: #ffffff; font-weight: bold;">
+    <div class="database-access">
         Access to Opening Databases
     </div>
 </a>
