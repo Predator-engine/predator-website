@@ -51,13 +51,14 @@
         text-shadow: 0 0 6px #00aaff, 0 0 12px #00aaff;
         animation: glowPulse 2.8s infinite ease-in-out;
     }
-
-.copilot-partner {
-    position: absolute;
-    top: 320px; 
-    left: 50%;
-    transform: translateX(-50%);
+.logo-left {
+    position: relative;
+    z-index: 99999;
+    pointer-events: auto;
+}
+    .copilot-partner {
     text-align: center;
+    margin-top: 20px;
     padding: 15px;
     border-top: 1px solid rgba(255,255,255,0.2);
     color: #cce6ff;
@@ -75,8 +76,7 @@
     font-size: 15px;
     line-height: 1.5;
     opacity: 0.9;
-   
-  }
+}
     @keyframes glowPulse {
         0% { text-shadow: 0 0 6px #00aaff; }
         50% { text-shadow: 0 0 18px #00ccff; }
@@ -267,7 +267,19 @@ img:focus, img:active {
                 drop-shadow(0 0 24px #1b8cff)
                 drop-shadow(0 0 45px #005eff);
         }
-       
+
+        header img.logo-right {
+            max-width: 260px;
+            height: auto;
+            filter:
+                brightness(1.45)
+                contrast(1.35)
+                saturate(1.8)
+                drop-shadow(0 0 14px #ff3b3b)
+                drop-shadow(0 0 28px #ff1a1a)
+                drop-shadow(0 0 55px #ff0000);
+        }
+
         .header-center {
             text-align: center;
             flex: 1;
@@ -554,10 +566,10 @@ img:focus, img:active {
     <source src="PREDATOR.mp3" type="audio/mpeg">
 </audio>
 
-<header>
+ <header>
     <a href="https://www.iccf.com/player?id=421354" target="_blank">
-    <img src="ICCF.png" alt="ICCF Logo" class="logo-left">
-</a>
+        <img src="ICCF.png" alt="ICCF Logo" class="logo-left">
+    </a>
 
 
     <div class="header-center">
