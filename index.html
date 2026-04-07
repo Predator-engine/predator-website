@@ -813,12 +813,17 @@ function updateClock() {
         day: "numeric"
     });
 
-    document.getElementById("current-time").textContent = time;
-    document.getElementById("current-date").textContent = date;
+    const timeEl = document.getElementById("current-time");
+    const dateEl = document.getElementById("current-date");
+
+    if (timeEl) timeEl.textContent = time;
+    if (dateEl) dateEl.textContent = date;
 }
 
 setInterval(updateClock, 1000);
 updateClock();
+</script>
+
 <!-- VISITOR COUNTER SCRIPT -->
 <script>
 async function updateVisitorCount() {
@@ -827,7 +832,6 @@ async function updateVisitorCount() {
 
     const apiUrl = `https://api.github.com/repos/${repo}/contents/${file}`;
 
-    // Fetch current value
     const response = await fetch(apiUrl);
     const data = await response.json();
 
@@ -838,14 +842,11 @@ async function updateVisitorCount() {
         count = parseInt(decoded) || 0;
     }
 
-    // Increase counter
     count++;
 
-    // Display on page
-    document.getElementById("visitor-count").textContent =
-        "Visitors: " + count;
+    const counterEl = document.getElementById("visitor-count");
+    if (counterEl) counterEl.textContent = "Visitors: " + count;
 
-    // Save updated value
     await fetch(apiUrl, {
         method: "PUT",
         headers: {
