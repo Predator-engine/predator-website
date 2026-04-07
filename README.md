@@ -1,3 +1,4 @@
+<img width="1920" height="1200" alt="Fritz20Portal" src="https://github.com/user-attachments/assets/a5a2a360-7026-4d73-9d8e-6a19f2cc878f" />
 🐺 Predator Chess Engine — Advanced UCI Engine for Modern Hardware
 Predator is a high‑performance, NNUE‑enhanced UCI chess engine designed for players, researchers, and engine developers who demand cutting‑edge search technology, adaptive strategic behavior, and uncompromising tactical strength.
 Built on a deeply optimized search core and enriched with Shashin‑inspired positional heuristics, Predator delivers a uniquely dynamic playing style while maintaining stability in complex, long‑term positions.
