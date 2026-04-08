@@ -1,4 +1,5 @@
-<img width="1920" height="1200" alt="PREDATOR (2)" src="https://github.com/user-attachments/assets/c11e6345-d289-4a57-938e-54eb049b8d55" />
+<img width="1920" height="1200" alt="PREDATOR" src="https://github.com/user-attachments/assets/e1068603-1367-4997-a7e3-5a4ea580c54e" />
+
 🐺 Predator Chess Engine — Technical Overview & Full Feature Documentation
 Predator is a modern, high‑performance UCI chess engine designed for players, analysts, correspondence competitors, and engine developers who demand cutting‑edge search technology, adaptive strategic behavior, and uncompromising tactical strength.
 Built on a deeply optimized alpha‑beta core and enhanced with NNUE evaluation, Predator delivers a uniquely dynamic playing style while maintaining long‑term positional stability.
@@ -275,15 +276,3 @@ development
 experimentation
 
 Executables and source code are available in the repository.
-
-If you want, I can now:
-
-format this as a GitHub‑ready README.md
-
-add badges, sections, tables, or logos
-
-create a short version and long version
-
-prepare a website‑optimized version for your Predator page
-
-Just tell me which format you want next.
