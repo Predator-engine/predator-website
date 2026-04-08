@@ -1,109 +1,251 @@
-<img width="1920" height="1200" alt="Fritz20Portal" src="https://github.com/user-attachments/assets/a5a2a360-7026-4d73-9d8e-6a19f2cc878f" />
-🐺 Predator Chess Engine — Advanced UCI Engine for Modern Hardware
-Predator is a high‑performance, NNUE‑enhanced UCI chess engine designed for players, researchers, and engine developers who demand cutting‑edge search technology, adaptive strategic behavior, and uncompromising tactical strength.
-Built on a deeply optimized search core and enriched with Shashin‑inspired positional heuristics, Predator delivers a uniquely dynamic playing style while maintaining stability in complex, long‑term positions.
+🐺 Predator Chess Engine — Technical Overview & Full Feature Documentation
+Predator is a modern, high‑performance UCI chess engine designed for players, analysts, correspondence competitors, and engine developers who demand cutting‑edge search technology, adaptive strategic behavior, and uncompromising tactical strength.
+Built on a deeply optimized alpha‑beta core and enhanced with NNUE evaluation, Predator delivers a uniquely dynamic playing style while maintaining long‑term positional stability.
 
-⚡ Core Highlights
-🔍 Hybrid Search Architecture
-Predator uses a highly optimized alpha‑beta framework with:
+This document provides a complete overview of Predator’s architecture, subsystems, learning modules, opening preparation tools, tablebase integration, and advanced configuration options.
 
-selective pruning (LMP, LMR, ProbCut, Razoring)
+⚡ 1. Hybrid Search Architecture
+Predator uses a highly optimized alpha‑beta framework with a full suite of selective search techniques:
 
-null‑move verification
+Selective Pruning & Reductions
+LMR (Late Move Reductions) — reduces depth for low‑priority moves
 
-multi‑PV analysis
+LMP (Late Move Pruning) — prunes weak moves early
 
-adaptive reductions based on position type
+ProbCut — probabilistic forward pruning for high‑confidence cutoffs
 
-deep move ordering heuristics (history, continuation, capture history)
+Razoring — shallow tactical pruning
 
-The engine is tuned for maximum depth and stability, scaling efficiently across multiple threads.
+Futility Pruning — eliminates moves unlikely to improve evaluation
 
-🧠 NNUE Evaluation + Classical Heuristics
-Predator integrates a modern NNUE (Efficiently Updatable Neural Network) evaluation pipeline, combining:
+Null‑Move Pruning + Verification — aggressive pruning with safety checks
 
-neural pattern recognition
+Move Ordering Heuristics
+History heuristics
 
-classical evaluation terms
+Continuation history
 
-dynamic correction layers
+Capture history
 
-material‑aware WDL scaling
+Killer moves
 
-This hybrid model allows Predator to evaluate positions with both tactical precision and strategic clarity.
+Countermoves
 
-🧩 Shashin‑Crystal Strategic Model
-Predator dynamically adjusts its playing style using Shashin‑inspired heuristics:
+Deep quiet‑move heuristics
 
-Tal‑mode for sharp, tactical positions
+Parallel Search
+Predator scales efficiently across multiple threads, with optimized split points and thread synchronization.
 
-Petrosian‑mode for prophylactic, defensive structures
+🧠 2. NNUE Evaluation + Classical Heuristics
+Predator integrates a modern NNUE (Efficiently Updatable Neural Network) evaluation pipeline with classical positional terms:
 
-Capablanca‑mode for clean, positional clarity
+NNUE Components
+Neural pattern recognition
 
-Fortress detection for closed, drawish endgames
+Incremental feature updates
 
-Complexity‑aware pruning for dynamic middlegames
+High‑precision evaluation of complex structures
 
-The engine reads the structure of the position and adapts its risk profile in real time.
+Classical Components
+Mobility
 
-📚 FenBook Opening System
-Predator includes a custom FEN‑based opening book engine:
+King safety
 
-probes positions directly from FEN
+Pawn structure
 
-supports “best move” or “wide move” selection
+Space and tension
 
-provides diagnostic output for training
+Material scaling
 
-integrates seamlessly with UCI search
+Dynamic Correction Layers
+Predator applies adaptive correction terms based on:
 
-This allows Predator to operate with flexible, position‑based opening preparation.
+phase of the game
 
-🎓 Reinforcement Learning Module
-Predator features a lightweight learning subsystem:
+material balance
 
-stores move evaluations across games
+king exposure
 
-updates scores using temporal‑difference learning
+structural imbalances
 
-improves decision‑making in recurring structures
+WDL Scaling
+Evaluation is converted into Win/Draw/Loss probabilities for improved decision‑making.
 
-integrates with TT and static eval
+💎 3. Shashin Crystal Model — Adaptive Playing Style
+Predator dynamically adjusts its strategic profile using heuristics inspired by Shashin’s theory of chess styles.
 
-This gives Predator the ability to self‑refine over time.
+Modes
+Tal Mode — sharp, tactical, sacrificial play
 
-🛠️ UCI Options & Customization
-Predator supports an extensive set of UCI options:
+Petrosian Mode — prophylactic, defensive, risk‑controlled play
+
+Capablanca Mode — clean, positional clarity and long‑term planning
+
+Fortress Mode — detection and maintenance of fortress structures
+
+Real‑Time Adaptation
+Predator analyzes:
+
+king safety
+
+pawn structure
+
+piece activity
+
+tension and complexity
+
+material distribution
+
+…and adjusts its risk profile accordingly.
+
+📚 4. FenBook — Position‑Based Opening System
+Predator includes a custom opening book engine based on FEN positions, not move sequences.
+
+Key Features
+Direct probing from FEN
+
+“Best move” or “Wide move” selection
+
+Diagnostic output for training
+
+Seamless integration with UCI search
+
+Works independently of CTG/BIN books
+
+FenBook allows Predator to operate with flexible, position‑driven opening preparation.
+
+🎓 5. Predator Staw — Self‑Cleaning Experience Book
+Predator includes a unique self‑learning, self‑cleaning experience book, unlike anything in Stockfish or other engines.
+
+What Predator Staw Does
+Records moves, evaluations, and outcomes
+
+Strengthens successful lines
+
+Weakens or removes poor lines
+
+Integrates NNUE evaluations
+
+Integrates Syzygy TB results
+
+Integrates FenBook data
+
+Avoids repeating losing variations
+
+Learns from long‑term patterns
+
+Self‑Cleaning System
+Predator automatically removes:
+
+statistically weak moves
+
+TB‑losing moves
+
+NNUE‑refuted moves
+
+unstable or low‑depth lines
+
+Configurable Options
+Experience Book Moves — number of moves stored per position
+
+Experience Book Min Depth — minimum depth required to record a move
+
+Concurrent Experience — multi‑threaded learning
+
+Clean Predator — automatic pruning of weak lines
+
+This system gives Predator a living, evolving opening and middlegame memory.
+
+🧬 6. Correspondence Mode
+Predator includes a dedicated Correspondence Mode for ICCF, LSS, and deep analysis.
+
+Behavior in Correspondence Mode
+Reduced pruning (safer search)
+
+Increased depth and stability
+
+More TB probing
+
+More accurate static evaluation
+
+Avoidance of risky tactical lines
+
+Preference for long‑term strategic plans
+
+Predator becomes a “strategic professor” rather than a “tactical assassin.”
+
+♟️ 7. Syzygy Tablebase Integration
+Predator fully supports Syzygy WDL + DTZ tablebases.
+
+Options
+SyzygyProbeDepth — depth at which TB probing begins
+
+SyzygyProbeLimit — maximum number of pieces for TB use
+
+SyzygyUseDTZ — precise distance‑to‑zeroing evaluation
+
+SyzygyUseWDL — fast win/draw/loss probing
+
+Syzygy50MoveRule — respects the 50‑move rule
+
+TB‑Aware Search
+Predator:
+
+avoids TB‑losing lines
+
+prefers TB‑winning continuations
+
+avoids 50‑move‑rule traps
+
+recognizes fortress positions
+
+reduces pruning near TB ranges
+
+This ensures perfect endgame play.
+
+🛠️ 8. UCI Options & Customization
+Predator exposes a wide range of UCI options:
+
+Search & Performance
+Threads
+
+Hash
+
+Move Overhead
+
+Minimum Thinking Time
 
 MultiPV
 
 Skill Level / Elo Limiting
 
+Opening Preparation
+UseBook
+
+CTG/BIN book support
+
 FenBook configuration
 
-Learning controls
+Learning
+Predator Staw (Experience Book)
 
-Threading & memory settings
+Clean Predator
 
-NNUE network selection
+Read‑only learning
 
-Search style tuning
+Persisted learning
 
-🧬 Optimized for Modern CPUs
-Predator includes hand‑tuned optimizations for:
+NNUE
+Network selection
 
-SSE2 / SSSE3 / SSE4.1
+Small/large network modes
 
-POPCNT / BMI
+Endgame
+Syzygy TB configuration
 
-AVX2
+Correspondence Mode
 
-64‑bit architectures
-
-This ensures maximum performance on modern hardware.
-
-🎮 Playing Style
+🎮 9. Playing Style
 Predator plays like a calculated attacker:
 
 sharp tactical vision
@@ -116,9 +258,9 @@ excellent endgame technique
 
 adaptive risk management
 
-The engine can switch between aggression, prophylaxis, and clarity depending on the structure.
+The engine shifts between aggression, prophylaxis, and clarity depending on the structure.
 
-📦 Open‑Source & Actively Developed
+📦 10. Open‑Source & Actively Developed
 Predator is released as open‑source software for:
 
 engine tournaments
@@ -132,3 +274,15 @@ development
 experimentation
 
 Executables and source code are available in the repository.
+
+If you want, I can now:
+
+format this as a GitHub‑ready README.md
+
+add badges, sections, tables, or logos
+
+create a short version and long version
+
+prepare a website‑optimized version for your Predator page
+
+Just tell me which format you want next.
