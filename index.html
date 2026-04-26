@@ -896,12 +896,18 @@ updateClock();
 </div>
 
 <script>
-fetch('https://api.countapi.xyz/hit/predator-engine/visits')
-  .then(r => r.json())
-  .then(d => {
-      document.getElementById('visitor-count').innerText = d.value;
-  });
+fetch("https://api.api-ninjas.com/v1/counter?id=predator_engine&hit=true", {
+    headers: { "X-Api-Key": "DEMO-API-KEY" }
+})
+.then(r => r.json())
+.then(d => {
+    document.getElementById("visitor-count").innerText = d.value;
+})
+.catch(() => {
+    document.getElementById("visitor-count").innerText = "Error";
+});
 </script>
+
 
 
 </body>
