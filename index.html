@@ -882,26 +882,6 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
-<div id="visitor-counter" style="margin-top:25px; text-align:center;">
-    <img id="predator-icon" src="Predator.png" alt="Predator Icon"
-         style="width:32px; filter:drop-shadow(0 0 6px #00aaff); margin-right:8px;">
-    <span id="visitor-count"
-          style="font-size:1.6rem; font-weight:900; color:#5fd0ff; text-shadow:0 0 8px #00aaff;">
-        Loading...
-    </span>
-</div>
-
-<div class="counter-note" style="text-align:center; margin-top:4px; color:#888;">
-    Total visitors
-</div>
-
-<script>
-fetch('https://api.countapi.xyz/hit/predator-engine/visits')
-  .then(r => r.json())
-  .then(d => {
-      document.getElementById('visitor-count').innerText = d.value;
-  });
-</script>
 
 
 </body>
