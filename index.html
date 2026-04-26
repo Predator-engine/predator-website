@@ -895,35 +895,26 @@ setInterval(updateClock, 1000);
 updateClock();
 </script>
 <!-- Global Visitor Counter (English) -->
-<div id="global-visitor-counter" style="color:white; font-size:20px; margin-top:20px;">
+<div id="visitor-count" style="color:white; font-size:20px; margin-top:20px;">
     Total visitors: Loading...
 </div>
 
 <script>
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    databaseURL: "https://your_project.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-};
+async function updateCounter() {
+    const url = "https://api.countapi.xyz/hit/predator-engine.github.io/visits";
 
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.database();
-const counterRef = db.ref('visitor-count');
-
-counterRef.transaction((currentCount) => {
-    return (currentCount === null) ? 1 : currentCount + 1;
-}, (error, committed, snapshot) => {
-    if (error) {
-        document.getElementById("global-visitor-counter").innerText = "Visitor counter error.";
-    } else {
-        document.getElementById("global-visitor-counter").innerText = "Total visitors: " + snapshot.val();
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        document.getElementById("visitor-count").innerText =
+            "Total visitors: " + data.value;
+    } catch (error) {
+        document.getElementById("visitor-count").innerText =
+            "Total visitors: Error";
     }
-});
+}
+
+updateCounter();
 </script>
 
 
