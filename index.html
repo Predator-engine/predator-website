@@ -840,7 +840,6 @@ img:focus, img:active {
 const audio = document.getElementById('bg-music');
 let musicEnabled = false;
 
-// allow autoplay muted
 audio.play().catch(() => {});
 
 function toggleMusic() {
@@ -882,6 +881,8 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
+
+<!-- VISITOR COUNTER -->
 <div id="visitor-counter" style="text-align:center; margin-top:20px;">
     <span id="visitor-count" style="font-size:1.6rem; font-weight:bold; color:#5fd0ff;">Loading...</span>
     <div style="font-size:0.8rem; color:#888; margin-top:4px;">Total visitors</div>
@@ -897,6 +898,6 @@ fetch("https://api.counterapi.dev/v1/predator-engine/visits?increment=true")
       document.getElementById("visitor-count").innerText = "Error";
   });
 </script>
-</script>
+
 </body>
 </html>
