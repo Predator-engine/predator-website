@@ -894,45 +894,36 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
-<!-- Visitor Counter -->
-<div id="visitor-counter" style="color:white; font-size:20px; margin-top:20px;">
-    Loading visitor count...
+<!-- Global Visitor Counter (English) -->
+<div id="global-visitor-counter" style="color:white; font-size:20px; margin-top:20px;">
+    Total visitors: Loading...
 </div>
 
 <script>
-async function updateVisitorCounter() {
-    const repo = "Predator-engine/predator-website";
-    const url = `https://api.github.com/repos/${repo}`;
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    databaseURL: "https://your_project.firebaseio.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
+firebase.initializeApp(firebaseConfig);
 
-        // GitHub API: watchers_count = liczba osób obserwujących repo
-        // stargazers_count = liczba gwiazdek
-        // forks_count = liczba forków
-        // Ale użyjemy: open_issues_count jako unikalny licznik wejść
+const db = firebase.database();
+const counterRef = db.ref('visitor-count');
 
-        let count = localStorage.getItem("predator_visits");
-
-        if (!count) {
-            count = 1;
-        } else {
-            count = parseInt(count) + 1;
-        }
-
-        localStorage.setItem("predator_visits", count);
-
-        document.getElementById("visitor-counter").innerText =
-            "Odwiedzin na tej przeglądarce: " + count;
-
-    } catch (error) {
-        document.getElementById("visitor-counter").innerText =
-            "Visitor counter error.";
+counterRef.transaction((currentCount) => {
+    return (currentCount === null) ? 1 : currentCount + 1;
+}, (error, committed, snapshot) => {
+    if (error) {
+        document.getElementById("global-visitor-counter").innerText = "Visitor counter error.";
+    } else {
+        document.getElementById("global-visitor-counter").innerText = "Total visitors: " + snapshot.val();
     }
-}
-
-updateVisitorCounter();
+});
 </script>
 
 
