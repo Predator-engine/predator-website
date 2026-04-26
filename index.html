@@ -888,10 +888,13 @@ updateClock();
 </div>
 
 <script>
-fetch("https://api.countapi.xyz/hit/predator-engine.github.io/visits")
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://predator-engine.github.io/predator-website")
+  .then(() => {
+      return fetch("https://hits.seeyoufarm.com/api/count/graph/daily?url=https://predator-engine.github.io/predator-website");
+  })
   .then(r => r.json())
   .then(data => {
-      document.getElementById("visitor-count").innerText = data.value;
+      document.getElementById("visitor-count").innerText = data.total;
   })
   .catch(() => {
       document.getElementById("visitor-count").innerText = "Error";
