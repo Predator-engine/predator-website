@@ -840,6 +840,7 @@ img:focus, img:active {
 const audio = document.getElementById('bg-music');
 let musicEnabled = false;
 
+// allow autoplay muted
 audio.play().catch(() => {});
 
 function toggleMusic() {
@@ -882,12 +883,6 @@ setInterval(updateClock, 1000);
 updateClock();
 </script>
 
-<div style="text-align:center; margin-top:20px;">
-    <img 
-        src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://predator-engine.github.io/predator-website&count_bg=%2300A8FF&title_bg=%23000000&icon=github.svg&icon_color=%23FFFFFF&title=Visitors&edge_flat=false" 
-        style="width:260px; height:auto;"
-        alt="Total visitors">
-</div>
 
 </body>
 </html>
