@@ -894,6 +894,46 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
+<!-- Visitor Counter -->
+<div id="visitor-counter" style="color:white; font-size:20px; margin-top:20px;">
+    Loading visitor count...
+</div>
+
+<script>
+async function updateVisitorCounter() {
+    const repo = "Predator-engine/predator-website";
+    const url = `https://api.github.com/repos/${repo}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // GitHub API: watchers_count = liczba osób obserwujących repo
+        // stargazers_count = liczba gwiazdek
+        // forks_count = liczba forków
+        // Ale użyjemy: open_issues_count jako unikalny licznik wejść
+
+        let count = localStorage.getItem("predator_visits");
+
+        if (!count) {
+            count = 1;
+        } else {
+            count = parseInt(count) + 1;
+        }
+
+        localStorage.setItem("predator_visits", count);
+
+        document.getElementById("visitor-counter").innerText =
+            "Odwiedzin na tej przeglądarce: " + count;
+
+    } catch (error) {
+        document.getElementById("visitor-counter").innerText =
+            "Visitor counter error.";
+    }
+}
+
+updateVisitorCounter();
+</script>
 
 
 </body>
