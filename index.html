@@ -829,10 +829,6 @@ img:focus, img:active {
 
 <footer>
 <br>
-<span id="visitor-count" style="color:#5fd0ff; text-shadow:0 0 6px #5fd0ff;">
-    Loading visitors...
-</span>
-
     © 2026 Predator / SOLIDOR Chess Engine — GPL licensed.
 </footer>
 
@@ -885,66 +881,6 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
-</script>
-
-<!-- VISITOR COUNTER SCRIPT -->
-<script>
-async function updateVisitorCount() {
-    const repo = "Predator-engine/predator-website";
-    const file = "counter.txt";
-
-    const apiUrl = `https://api.github.com/repos/${repo}/contents/${file}`;
-
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-
-    let count = 0;
-
-    if (data.content) {
-        const decoded = atob(data.content);
-        count = parseInt(decoded) || 0;
-    }
-
-    count++;
-
-    const counterEl = document.getElementById("visitor-count");
-    if (counterEl) counterEl.textContent = "Visitors: " + count;
-
-    await fetch(apiUrl, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "token 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"
-        },
-        body: JSON.stringify({
-            message: "Update visitor counter",
-            content: btoa(count.toString()),
-            sha: data.sha
-        })
-    });
-}
-
-updateVisitorCount();
-</script>
-
-<div id="visitor-counter">
-    You are the next visitor on this page: <span id="visitor-count">...</span>
-    <div class="counter-note">Note: This is a local counter. Each visitor sees their own count.</div>
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    let count = localStorage.getItem("predator_visits");
-
-    if (!count) {
-        count = 1;
-    } else {
-        count = parseInt(count) + 1;
-    }
-
-    localStorage.setItem("predator_visits", count);
-
-    document.getElementById("visitor-count").textContent = count;
-});
 </script>
 
 </body>
