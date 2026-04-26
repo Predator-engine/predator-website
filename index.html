@@ -896,16 +896,15 @@ updateClock();
 </div>
 
 <script>
-fetch("https://api.api-ninjas.com/v1/counter?id=predator_engine&hit=true", {
-    headers: { "X-Api-Key": "DEMO-API-KEY" }
-})
-.then(r => r.json())
-.then(d => {
-    document.getElementById("visitor-count").innerText = d.value;
-})
-.catch(() => {
-    document.getElementById("visitor-count").innerText = "Error";
-});
+fetch("https://api.github.com/repos/Predator-engine/predator-website")
+  .then(r => r.json())
+  .then(data => {
+      const visits = data.watchers_count + data.stargazers_count + data.forks_count;
+      document.getElementById("visitor-count").innerText = visits;
+  })
+  .catch(() => {
+      document.getElementById("visitor-count").innerText = "Error";
+  });
 </script>
 
 
