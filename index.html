@@ -895,28 +895,24 @@ setInterval(updateClock, 1000);
 updateClock();
 </script>
 
-<!-- Global Visitor Counter (English) -->
+<!-- Global Visitor Counter (English, JSONP) -->
 <div id="visitor-count" style="color:white; font-size:20px; margin-top:20px;">
     Total visitors: Loading...
 </div>
 
 <script>
-async function updateCounter() {
-    const url = "https://api.countapi.xyz/hit/predator-engine.github.io/visits";
-
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        document.getElementById("visitor-count").innerText =
-            "Total visitors: " + data.value;
-    } catch (error) {
-        document.getElementById("visitor-count").innerText =
+function handleVisitorCount(response) {
+    if (response && typeof response.value === "number") {
+        document.getElementById("visitor-count").textContent =
+            "Total visitors: " + response.value;
+    } else {
+        document.getElementById("visitor-count").textContent =
             "Total visitors: Error";
     }
 }
-
-updateCounter();
 </script>
+
+<script async src="https://api.countapi.xyz/hit/predator-engine.github.io/visits?callback=handleVisitorCount"></script>
 
 </body>
 </html>
