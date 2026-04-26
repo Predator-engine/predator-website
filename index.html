@@ -882,24 +882,11 @@ setInterval(updateClock, 1000);
 updateClock();
 </script>
 
-<div id="visitor-counter" style="text-align:center; margin-top:20px;">
-    <span id="visitor-count" style="font-size:1.6rem; font-weight:bold; color:#5fd0ff;">Loading...</span>
-    <div style="font-size:0.8rem; color:#888; margin-top:4px;">Total visitors</div>
+<div style="text-align:center; margin-top:20px;">
+    <img 
+        src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://predator-engine.github.io/predator-website&title=Total%20visitors&edge_flat=false" 
+        alt="Total visitors">
 </div>
-
-<script>
-fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://predator-engine.github.io/predator-website")
-  .then(() => {
-      return fetch("https://hits.seeyoufarm.com/api/count/graph/daily?url=https://predator-engine.github.io/predator-website");
-  })
-  .then(r => r.json())
-  .then(data => {
-      document.getElementById("visitor-count").innerText = data.total;
-  })
-  .catch(() => {
-      document.getElementById("visitor-count").innerText = "Error";
-  });
-</script>
 
 </body>
 </html>
