@@ -1,18 +1,28 @@
-async function updateCounter() {
-    const response = await fetch("counter.txt");
-    let count = parseInt(await response.text());
+(() => {
+    const countElement = document.getElementById("visitor-count");
+    if (!countElement || window.location.hostname !== "predator-engine.github.io") return;
 
-    count++;
+    const callbackName = `predatorCounter_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const script = document.createElement("script");
+    const endpoint = "https://counterapi.com/api/predator-engine.github.io/view/predator-website-home";
 
-    document.getElementById("visitor-count").innerText = count;
-}
+    const finish = (value) => {
+        countElement.textContent = value;
+        delete window[callbackName];
+        script.remove();
+    };
 
-async function loadCounter() {
-    const response = await fetch("counter.txt");
-    const count = await response.text();
+    window[callbackName] = (result) => {
+        const count = Number(result?.value);
+        finish(Number.isFinite(count) ? count.toLocaleString("en-US") : "—");
+    };
 
-    document.getElementById("visitor-count").innerText = count;
-}
+    script.async = true;
+    script.onerror = () => finish("—");
+    script.src = `${endpoint}?callback=${encodeURIComponent(callbackName)}&unique=true`;
+    document.head.appendChild(script);
 
-loadCounter();
-updateCounter();
+    window.setTimeout(() => {
+        if (window[callbackName]) finish("—");
+    }, 10000);
+})();
